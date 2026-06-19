@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- ===== HEADER CARD (spans full width) ===== -->
+  <header class="header-card">
+    <div class="header-left">
+      <div id="clock" class="clock">00:00:00</div>
+      <div id="date" class="date"></div>
+      <div class="greeting-row">
+        <span id="greeting" class="greeting">Hello,</span>
+        <span id="display-name" class="user-name">Friend</span>
+        <button class="edit-name-btn" id="edit-name-btn" title="Edit name">✏️ Edit</button>
+      </div>
+    </div>
+    <div class="header-right">
+      <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+        <span id="theme-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Name edit modal -->
+  <div class="modal-overlay" id="name-modal" hidden>
+    <div class="modal">
+      <h3>Set Your Name</h3>
+      <input type="text" id="name-input" placeholder="Enter your name…" maxlength="30" />
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="save-name-btn">Save</button>
+        <button class="btn btn-ghost" id="cancel-name-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN GRID: 1fr 1fr ===== -->
+  <main class="main-grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="left-col">
+
+      <!-- Focus Timer Card -->
+      <section class="card" id="timer-card">
+        <h2 class="card-title">🍅 Focus Timer</h2>
+
+        <!-- 180px circle with timer number inside -->
+        <div class="timer-ring">
+          <div id="timer-display" class="timer-display">25:00</div>
+        </div>
+
+        <div class="timer-controls">
+          <button class="btn btn-primary" id="start-btn">Start</button>
+          <button class="btn btn-secondary" id="pause-btn" disabled>Pause</button>
+          <button class="btn btn-ghost" id="reset-btn">Reset</button>
+        </div>
+
+        <div class="timer-custom">
+          <label for="custom-minutes">Custom (min):</label>
+          <input type="number" id="custom-minutes" min="1" max="120" placeholder="25" />
+          <button class="btn btn-ghost" id="set-timer-btn">Set</button>
+        </div>
+      </section>
+
+      <!-- Quick Links Card -->
+      <section class="card" id="links-card">
+        <h2 class="card-title">🔗 Quick Links</h2>
+        <div class="add-link-form">
+          <input type="text" id="link-name" placeholder="Site name…" maxlength="30" />
+          <input type="url"  id="link-url"  placeholder="https://…" />
+          <button class="btn btn-primary" id="add-link-btn">Add</button>
+        </div>
+        <ul class="links-list" id="links-list"></ul>
+      </section>
+
+    </div><!-- /left-col -->
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+
+      <!-- To-Do List Card -->
+      <section class="card" id="todo-card">
+        <h2 class="card-title">✅ To-Do List</h2>
+
+        <!-- Input + button horizontally aligned -->
+        <div class="todo-add-form">
+          <input type="text" id="todo-input" placeholder="Add a new task…" maxlength="100" />
+          <button class="btn btn-primary" id="add-todo-btn">Add</button>
+        </div>
+
+        <p class="duplicate-warning" id="duplicate-warning" hidden>⚠️ Task already exists!</p>
+
+        <ul class="todo-list" id="todo-list"></ul>
+        <div class="todo-footer" id="todo-footer"></div>
+      </section>
+
+    </div><!-- /right-col -->
+
+  </main>
+
+</div><!-- /wrapper -->
+
+<script src="js/script.js"></script>
+</body>
+</html>
